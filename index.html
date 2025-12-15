@@ -161,12 +161,24 @@
 
         // Chama a função uma vez ao carregar para mostrar o que já está na tela
         revealElements();
-        // Script para o Menu Hamburger (Mobile)
+        // --- SCRIPT DO MENU HAMBURGER (ATUALIZADO) ---
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
 
+        // 1. Abrir/Fechar ao clicar no ícone
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('open');
+        });
+
+        // 2. Fechar automaticamente ao clicar em um link
+        // Seleciona todos os links dentro do menu (Home, Preços, Galeria...)
+        const linksDoMenu = document.querySelectorAll('.nav-links a');
+
+        linksDoMenu.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove a classe 'open' para fechar o menu
+                navLinks.classList.remove('open');
+            });
         });
     </script>
 
