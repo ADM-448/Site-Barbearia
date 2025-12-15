@@ -307,75 +307,71 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* --- ATUALIZAÇÃO NO MOBILE (Substitua a parte do carrossel dentro do @media) --- */
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
-  /* ... (seu código do menu hamburger continua igual aqui) ... */
+    /* Menu Lateral Deslizante */
+    .hamburger {
+        display: block; /* Garante que o ícone apareça no celular */
+        z-index: 1001; /* Fica acima do menu aberto */
+    }
 
-  /* Ajuste Fino do Carrossel Mobile */
-  .carousel-container {
-    /* Adiciona um padding lateral para o primeiro e último card não ficarem colados */
-    padding: 0 10%;
-  }
+    .nav-links {
+        position: fixed; /* Fixado na tela */
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%; /* Ocupa 70% da largura */
+        background-color: var(--bg-card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%); /* Começa escondido na direita */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        z-index: 1000; /* Fica abaixo do ícone do hambúrguer */
+    }
 
-  .card {
-    /* 80% da tela fica perfeito para mostrar um pedacinho do próximo */
-    min-width: 80vw;
+    /* Classe que o Javascript adiciona para abrir o menu */
+    .nav-links.open {
+        transform: translateX(0);
+    }
 
-    /* Sombra mais suave no mobile */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
+    .nav-links li {
+        margin: 20px 0;
+    }
 
-  /* Centraliza o título da seção também */
-  .section-title {
-    font-size: 2.5rem; /* Um pouco menor no celular para não quebrar */
-    padding: 0 10px;
-  }
+    /* Ajuste texto Hero */
+    .hero-content h1 {
+        font-size: 3rem;
+    }
 
-  .nav-links {
-    position: fixed; /* Fixado na tela */
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 70%; /* Ocupa 70% da largura */
-    background-color: var(--bg-card);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%); /* Começa escondido na direita */
-    transition: transform 0.3s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-  }
+    /* Centraliza o título da seção no mobile */
+    .section-title {
+        text-align: center;
+    }
+    
+    /* Carrossel Mobile */
+    .card {
+        min-width: 60vw; /* Card ocupa 60% da tela, mostrando o próximo */
+        margin-right: 15px; /* Espaço entre os cards */
+    }
 
-  /* Classe que o Javascript adiciona para abrir o menu */
-  .nav-links.open {
-    transform: translateX(0);
-  }
+    /* Centraliza o título dentro do card no mobile */
+    .card h3 {
+        text-align: center;
+    }
+    
+    .carousel-container {
+        padding: 0;
+    }
 
-  .nav-links li {
-    margin: 20px 0;
-  }
-
-  /* Ajuste texto Hero */
-  .hero-content h1 {
-    font-size: 3rem;
-  }
-
-  /* Carrossel Mobile */
-  .card {
-    min-width: 80vw; /* Card ocupa 80% da tela no celular */
-  }
-
-  .carousel-container {
-    padding: 0;
-  }
-
-  .arrow-btn {
-    display: none; /* Esconde setas no mobile (usa-se o dedo) */
-  }
-
-  /* Preços Mobile */
-  .price-item {
-    font-size: 1rem;
-  }
+    .arrow-btn {
+        display: none; /* Esconde setas no mobile (usa-se o dedo) */
+    }
+    
+    /* Preços Mobile */
+    .price-item {
+        font-size: 1rem;
+    }
 }
+
