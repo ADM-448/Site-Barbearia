@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick Style Barber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Slick Style Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#pricing">Preços</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact" class="btn-agendar">Agendar</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>ESTILO & <span class="highlight">ATITUDE</span></h1>
+            <p>O melhor corte para o homem moderno.</p>
+        </div>
+    </header>
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Nossos <span class="highlight">Trabalhos</span></h2>
+
+        <div class="carousel-container">
+            <button class="arrow-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+
+            <div class="carousel" id="carousel">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop"
+                        alt="Corte na Régua">
+                    <h3>Corte Fade</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop"
+                        alt="Barba Feita">
+                    <h3>Barba Lenhador</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop"
+                        alt="Barboterapia">
+                    <h3>Barboterapia</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=2070&auto=format&fit=crop"
+                        alt="Corte Clássico">
+                    <h3>Social Clássico</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop"
+                        alt="Corte na Régua">
+                    <h3>Corte Fade Extra</h3>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop"
+                        alt="Barba Feita">
+                    <h3>Barba Extra</h3>
+                </div>
+            </div>
+            <button class="arrow-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">Tabela de <span class="highlight">Preços</span></h2>
+
+        <div class="price-list">
+            <div class="price-item">
+                <span class="service-name">Corte de Cabelo</span>
+                <span class="dots"></span>
+                <span class="service-price">R$ 50,00</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Barba Completa</span>
+                <span class="dots"></span>
+                <span class="service-price">R$ 35,00</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Cabelo + Barba (Combo)</span>
+                <span class="dots"></span>
+                <span class="service-price">R$ 75,00</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Sobrancelha</span>
+                <span class="dots"></span>
+                <span class="service-price">R$ 15,00</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Pezinho / Acabamento</span>
+                <span class="dots"></span>
+                <span class="service-price">R$ 20,00</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-info" id="contact">
+        <div class="info-container">
+            <div class="info-box">
+                <h3>Horários</h3>
+                <p>Seg - Sex: 09:00 - 20:00</p>
+                <p>Sábado: 09:00 - 18:00</p>
+                <p>Domingo: Fechado</p>
+            </div>
+
+            <div class="info-box action-box">
+                <h3>Agende seu Horário</h3>
+                <p>Evite filas e garanta seu visual.</p>
+                <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20um%20horário!"
+                    target="_blank" class="whatsapp-btn">
+                    Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Slick Style Barber. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(direction) {
+            const container = document.getElementById('carousel');
+            const scrollAmount = 320; // Tamanho do card + margem
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+        // Script para Animação ao Rolar (Scroll Reveal)
+        window.addEventListener('scroll', revealElements);
+
+        function revealElements() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150; // Distância para ativar a animação
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Chama a função uma vez ao carregar para mostrar o que já está na tela
+        revealElements();
+        // Script para o Menu Hamburger (Mobile)
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
+
+</body>
+
+</html>
